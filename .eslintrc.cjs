@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   extends: [
@@ -34,6 +34,8 @@ module.exports = {
     node: true
   },
   rules: {
+    // Tắt cảnh báo any
+    '@typescript-eslint/no-explicit-any': '',
     // Tắt rule yêu cầu import React trong file jsx
     'react/react-in-jsx-scope': 'off',
     // Cảnh báo khi thẻ <a target='_blank'> mà không có rel="noreferrer"
@@ -54,4 +56,4 @@ module.exports = {
       }
     ]
   }
-}
+};

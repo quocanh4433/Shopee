@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function HeaderRegisterLayout() {
   return (
-    <header className='mx-auto max-w-7xl px-5 py-3'>
+    <header className='container py-3'>
       <nav className='flex items-center justify-between'>
         <div className='flex items-center'>
           <Link to='/'>
