@@ -24,7 +24,7 @@ export default function Register() {
   return (
     <section className='bg-orange'>
       <div className='container'>
-        <div className='grid grid-cols-1 bg-cover bg-no-repeat py-8 md:grid-cols-5 md:bg-[url("https://cf.shopee.vn/file/sg-11134004-23020-hgx4adi96mnvbb")] md:py-5 lg:py-40'>
+        <div className='mx-auto grid max-w-6xl grid-cols-1 bg-cover bg-no-repeat px-6 py-8 md:grid-cols-5 md:bg-[url("https://cf.shopee.vn/file/sg-11134004-23020-hgx4adi96mnvbb")] md:py-5 lg:py-40'>
           <div className='rounded bg-white py-10 px-8 shadow-sm md:col-span-3 md:col-start-4'>
             <h3 className='mb-6 text-xl'>Đăng ký</h3>
             <form onSubmit={onSubmit} noValidate>
