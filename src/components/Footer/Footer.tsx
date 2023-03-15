@@ -3,11 +3,11 @@ export default function Footer() {
     <footer className='container bg-gray-100'>
       <div className='grid grid-cols-1 gap-3 border-b border-b-gray-300 py-7 md:grid-cols-5'>
         <div>
-          <h4 className='mb-4 text-xs font-bold text-gray-700'>CHAM SÓC KHÁCH HÀNG</h4>
+          <h4 className='mb-4 text-xs font-bold text-gray-700'>CHĂM SÓC KHÁCH HÀNG</h4>
           <ul className='text-xs text-gray-600'>
             <li className='mb-2'>
               <a href='https://help.shopee.vn/portal' className='hover:text-orange'>
-                Trung Tâm Tr? Giúp
+                Trung Tâm Trợ Giúp
               </a>
             </li>
             <li className='mb-2'>
@@ -28,7 +28,7 @@ export default function Footer() {
                 href='https://help.shopee.vn/portal/article/79180-[Th%c3%a0nh-vi%c3%aan-m%e1%bb%9bi]-L%c3%a0m-sao-%c4%91%e1%bb%83-mua-h%c3%a0ng-%2F-%c4%91%e1%ba%b7t-h%c3%a0ng-tr%c3%aan-%e1%bb%a9ng-d%e1%bb%a5ng-Shopee%3F'
                 className='hover:text-orange'
               >
-                Hu?ng D?n Mua Hàng
+                Hướng Dẫn Mua Hàng
               </a>
             </li>
             <li className='mb-2'>
@@ -36,7 +36,7 @@ export default function Footer() {
                 href='https://banhang.shopee.vn/edu/article/13243/ban-hang-online-bat-dau-tu-dau'
                 className='hover:text-orange'
               >
-                Hu?ng D?n Bán Hàng
+                Hướng Dẫn Bán Hàng
               </a>
             </li>
             <li className='mb-2'>
@@ -60,7 +60,7 @@ export default function Footer() {
                 href='https://help.shopee.vn/portal/category/60-%C4%90%C6%A1n-H%C3%A0ng-V%E1%BA%ADn-Chuy%E1%BB%83n/703-%C4%90%C6%A1n-h%C3%A0ng?page=1'
                 className='hover:text-orange'
               >
-                V?n Chuy?n
+                Vận Chuyển
               </a>
             </li>
             <li className='mb-2'>
@@ -68,7 +68,7 @@ export default function Footer() {
                 href='https://help.shopee.vn/portal/article/79258-Tr%e1%ba%a3-h%c3%a0ng%2FHo%c3%a0n-ti%e1%bb%81n]-C%e1%ba%a9m-nang-Tr%e1%ba%a3-h%c3%a0ng-ho%c3%a0n-ti%e1%bb%81n'
                 className='hover:text-orange'
               >
-                Tr? Hàng & Hoàn Ti?n
+                Trả Hàng & Hoàn Tiền
               </a>
             </li>
             <li className='mb-2'>
@@ -76,7 +76,7 @@ export default function Footer() {
                 href='https://help.shopee.vn/portal/article/79191-%5BD%E1%BB%8Bch-v%E1%BB%A5%5D-L%C3%A0m-sao-%C4%91%E1%BB%83-li%C3%AAn-h%E1%BB%87-Ch%C4%83m-s%C3%B3c-Kh%C3%A1ch-h%C3%A0ng'
                 className='hover:text-orange'
               >
-                Cham Sóc Khách Hàng
+                Chăm Sóc Khách Hàng
               </a>
             </li>
             <li className='mb-2'>
@@ -84,7 +84,7 @@ export default function Footer() {
                 href='https://help.shopee.vn/portal/article/79046-[Quy-%c4%91%e1%bb%8bnh]-Ch%c3%adnh-s%c3%a1ch-b%e1%ba%a3o-h%c3%a0nh-cho-s%e1%ba%a3n-ph%e1%ba%a9m-mua-t%e1%ba%a1i-Shopee'
                 className='hover:text-orange'
               >
-                Chính Sách B?o Hành
+                Chính Sách Bảo Hành
               </a>
             </li>
           </ul>
@@ -94,22 +94,22 @@ export default function Footer() {
           <ul className='text-xs text-gray-600'>
             <li className='mb-2'>
               <a href='https://careers.shopee.vn/about' className='hover:text-orange'>
-                Gi?i Thi?u V? Shopee Vi?t Nam
+                Giới Thiệu Về Shopee Việt Nam
               </a>
             </li>
             <li className='mb-2'>
               <a href='https://careers.shopee.vn/jobs' className='hover:text-orange'>
-                Tuy?n D?ng
+                Tuyển Dụng
               </a>
             </li>
             <li className='mb-2'>
               <a href='https://help.shopee.vn/portal/article/77242' className='hover:text-orange'>
-                Ði?u Kho?n Shopee
+                Ðiều Khoản Shopee
               </a>
             </li>
             <li className='mb-2'>
               <a href='https://help.shopee.vn/portal/article/77244' className='hover:text-orange'>
-                Chính Sách B?o M?t
+                Chính Sách Bảo Mật
               </a>
             </li>
             <li className='mb-2'>
@@ -119,7 +119,7 @@ export default function Footer() {
             </li>
             <li className='mb-2'>
               <a href='https://banhang.shopee.vn/' className='hover:text-orange'>
-                Kênh Ngu?i Bán
+                Kênh Nguời Bán
               </a>
             </li>
             <li className='mb-2'>
@@ -129,12 +129,12 @@ export default function Footer() {
             </li>
             <li className='mb-2'>
               <a href='https://shopee.vn/affiliate/' className='hover:text-orange'>
-                Chuong Trình Ti?p Th? Liên K?t Shopee
+                Chương Trình Tiếp Thị Liên Kết Shopee
               </a>
             </li>
             <li className='mb-2'>
               <a href='https://shopee.vn/buyer/login?next=https%3A%2F%2Fshopee.vn%2F' className='hover:text-orange'>
-                Liên H? V?i Truy?n Thông
+                Liên Hệ Với Truyền Thông
               </a>
             </li>
           </ul>
@@ -202,7 +202,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className='mb-4 text-xs font-bold text-gray-700'>Ð?I TÁC V?N CHUY?N</h4>
+            <h4 className='mb-4 text-xs font-bold text-gray-700'>ÐỐI TÁC VẬN CHUYỂN</h4>
             <ul className='grid grid-cols-3 gap-2'>
               <li>
                 <img
@@ -298,7 +298,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className='mb-4 text-xs font-bold text-gray-700'>T?I ?NG D?NG SHOPEE NGAY THÔI</h4>
+          <h4 className='mb-4 text-xs font-bold text-gray-700'>TẢI ỨNG DỤNG SHOPEE NGAY THÔI</h4>
           <div className='grid grid-cols-2 gap-2'>
             <div>
               <a href='https://shopee.vn/web' className='hover:text-orange'>
@@ -345,28 +345,28 @@ export default function Footer() {
       </div>
       <div className='py-8 text-xs text-gray-600'>
         <div className='mb-12 grid grid-cols-1 md:grid-cols-3'>
-          <h4 className='md:col-span-1'>© 2023 Shopee. T?t c? các quy?n du?c b?o luu.</h4>
+          <h4 className='md:col-span-1'>© 2023 Shopee. Tất cả các quyền được bảo lưu.</h4>
           <h4 className='md:col-span-2'>
-            Qu?c gia & Khu v?c: Singapore | Indonesia | Ðài Loan | Thái Lan | Malaysia | Vi?t Nam | Philippines | Brazil
+            Quốc gia & Khu vực: Singapore | Indonesia | Ðài Loan | Thái Lan | Malaysia | Việt Nam | Philippines | Brazil
             | México | Colombia | Chile
           </h4>
         </div>
 
         <div className='mb-[3rem] text-center'>
           <a className='mx-4' href='https://help.shopee.vn/portal/article/77244'>
-            CHÍNH SÁCH B?O M?T
+            CHÍNH SÁCH BẢO MẬT
           </a>
           |
           <a className='mx-4' href='https://help.shopee.vn/portal/article/77245'>
-            QUY CH? HO?T Ð?NG
+            QUY CHẾ HOẠT ÐỘNG
           </a>
           |
           <a className='mx-4' href='https://help.shopee.vn/portal/article/77250'>
-            CHÍNH SÁCH V?N CHUY?N
+            CHÍNH SÁCH VẬN CHUYỂN
           </a>
           |
           <a className='mx-4' href='https://help.shopee.vn/portal/article/77251'>
-            CHÍNH SÁCH TR? HÀNG VÀ HOÀN TI?N
+            CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN
           </a>
         </div>
 
@@ -387,11 +387,11 @@ export default function Footer() {
         <div className='text-center'>
           <h4 className='mb-4'>Công ty TNHH Shopee</h4>
           <p className='leading-6'>
-            Ð?a ch?: T?ng 4-5-6, Tòa nhà Capital Place, s? 29 du?ng Li?u Giai, Phu?ng Ng?c Khánh, Qu?n Ba Ðình, Thành
-            ph? Hà N?i, Vi?t Nam. T?ng dài h? tr?: 19001221 - Email: cskh@hotro.shopee.vn <br />
-            Ch?u Trách Nhi?m Qu?n Lý N?i Dung: Nguy?n Ð?c Trí - Ði?n tho?i liên h?: 024 73081221 (ext 4678) <br />
-            Mã s? doanh nghi?p: 0106773786 do S? K? ho?ch & Ð?u tu TP Hà N?i c?p l?n d?u ngày 10/02/2015 <br />© 2015 -
-            B?n quy?n thu?c v? Công ty TNHH Shopee
+            Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành
+            phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn <br />
+            Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Đức Trí - Điện thoại liên hệ: 024 73081221 (ext 4678) <br />
+            Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015 <br />© 2015 -
+            Bản quyền thuộc về Công ty TNHH Shopee
           </p>
         </div>
       </div>
