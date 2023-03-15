@@ -1,30 +1,57 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Input from 'src/components/Input';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { getRules, schema, SchemaRegister } from 'src/utils/rules';
+import { schema, TypeSchemaRegister } from 'src/utils/rules';
+import { useMutation } from 'react-query';
+import { registerAccount } from 'src/apis/auth.api';
+import { omit } from 'lodash';
+import { isAxiosErrorUnprocessableEntity } from 'src/utils/utils';
+import { ResponseApi } from 'src/types/utils.type';
 
-type FormState = SchemaRegister;
+type FormState = TypeSchemaRegister;
 
 export default function Register() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors }
   } = useForm<FormState>({
     resolver: yupResolver(schema)
   });
 
-  const rules = getRules();
+  const regsiterAcccountMutation = useMutation({
+    mutationFn: (body: Omit<FormState, 'confirm_password'>) => registerAccount(body)
+  });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    const body = omit(data, ['confirm_password']);
+    regsiterAcccountMutation.mutate(body, {
+      onSuccess: (_) => {
+        navigate('/login');
+      },
+      onError: (error) => {
+        if (isAxiosErrorUnprocessableEntity<ResponseApi<Omit<FormState, 'confirm_password'>>>(error)) {
+          const formError = error.response?.data.data;
+          if (formError) {
+            Object.keys(formError).forEach((key) => {
+              setError(key as keyof Omit<FormState, 'confirm_password'>, {
+                message: formError[key as keyof Omit<FormState, 'confirm_password'>],
+                type: 'Server'
+              });
+            });
+          }
+        }
+      }
+    });
   });
 
   return (
     <section className='bg-orange'>
       <div className='container'>
-        <div className='mx-auto grid max-w-6xl grid-cols-1 bg-cover bg-no-repeat px-6 py-8 md:grid-cols-5 md:bg-[url("https://cf.shopee.vn/file/sg-11134004-23020-hgx4adi96mnvbb")] md:py-5 lg:py-40'>
+        <div className='mx-auto grid max-w-6xl grid-cols-1 bg-cover bg-no-repeat px-6 py-8 md:grid-cols-5 md:bg-[url("https://cf.shopee.vn/file/sg-11134004-23020-75qwyq2a7snv15")] md:py-5 lg:py-40'>
           <div className='rounded bg-white py-10 px-8 shadow-sm md:col-span-3 md:col-start-4'>
             <h3 className='mb-6 text-xl'>Đăng ký</h3>
             <form onSubmit={onSubmit} noValidate>

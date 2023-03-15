@@ -21,10 +21,9 @@ export const schema = yup.object({
     .oneOf([yup.ref('password')], 'Xác nhận mật khẩu không khớp')
 });
 
-const typeLogin = schema.omit(['confirm_password']);
-
-export type SchemaLogin = yup.InferType<typeof typeLogin>;
-export type SchemaRegister = yup.InferType<typeof schema>;
+export const schemaLogin = schema.omit(['confirm_password']);
+export type TypeSchemaLogin = yup.InferType<typeof schemaLogin>;
+export type TypeSchemaRegister = yup.InferType<typeof schema>;
 
 /********************************************************************************************/
 /********************************************************************************************/
