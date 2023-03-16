@@ -90,7 +90,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className='mb-4 text-xs font-bold text-gray-700'>V? SHOPEE</h4>
+          <h4 className='mb-4 text-xs font-bold text-gray-700'>VỀ SHOPEE</h4>
           <ul className='text-xs text-gray-600'>
             <li className='mb-2'>
               <a href='https://careers.shopee.vn/about' className='hover:text-orange'>
