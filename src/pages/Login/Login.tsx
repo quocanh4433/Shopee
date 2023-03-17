@@ -9,12 +9,14 @@ import { SuccessResponseType } from 'src/types/utils.type';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AppContext } from 'src/context/app.context';
 import { useContext } from 'react';
+import Button from 'src/components/Button';
+import { path } from 'src/constant/path';
 
 type FormState = TypeSchemaLogin;
 
 export default function Login() {
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useContext(AppContext);
+  const { setIsAuthenticated, setProfile } = useContext(AppContext);
   const {
     register,
     handleSubmit,
@@ -30,9 +32,10 @@ export default function Login() {
 
   const onSubmit = handleSubmit((data) => {
     loginMutation.mutate(data, {
-      onSuccess: () => {
+      onSuccess: (data) => {
         setIsAuthenticated(true);
-        navigate('/');
+        setProfile(data.data.data.user);
+        navigate(path.home);
       },
       onError: (error) => {
         if (isAxiosErrorUnprocessableEntity<SuccessResponseType<FormState>>(error)) {
@@ -75,15 +78,17 @@ export default function Login() {
                 autoComplete='on'
                 errorMessage={errors?.password?.message}
               />
-              <button
+              <Button
                 type='submit'
-                className='mt-5 mb-8 w-full rounded bg-orange py-2 px-4 text-center uppercase text-white'
+                className='mt-5 mb-8 flex w-full items-center justify-center rounded bg-orange py-2 px-4  text-center uppercase text-white'
+                isLoading={loginMutation.isLoading}
+                disabled={loginMutation.isLoading}
               >
                 Đăng nhập
-              </button>
+              </Button>
               <h4 className='text-center text-sm text-gray-400'>
                 Bạn mới đến Shopee?
-                <Link to='/register' className='ml-2 text-orange'>
+                <Link to={path.register} className='ml-2 text-orange'>
                   Đăng ký
                 </Link>
               </h4>

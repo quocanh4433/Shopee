@@ -10,11 +10,13 @@ import { isAxiosErrorUnprocessableEntity } from 'src/utils/utils';
 import { SuccessResponseType } from 'src/types/utils.type';
 import { useContext } from 'react';
 import { AppContext } from 'src/context/app.context';
+import Button from 'src/components/Button';
+import { path } from 'src/constant/path';
 
 type FormState = TypeSchemaRegister;
 
 export default function Register() {
-  const { setIsAuthenticated } = useContext(AppContext);
+  const { setIsAuthenticated, setProfile } = useContext(AppContext);
   const navigate = useNavigate();
   const {
     register,
@@ -25,16 +27,17 @@ export default function Register() {
     resolver: yupResolver(schema)
   });
 
-  const regsiterAcccountMutation = useMutation({
+  const regsiterMutation = useMutation({
     mutationFn: (body: Omit<FormState, 'confirm_password'>) => registerApi(body)
   });
 
   const onSubmit = handleSubmit((data) => {
     const body = omit(data, ['confirm_password']);
-    regsiterAcccountMutation.mutate(body, {
-      onSuccess: (_) => {
+    regsiterMutation.mutate(body, {
+      onSuccess: (data) => {
         setIsAuthenticated(true);
-        navigate('/login');
+        setProfile(data.data.data.user);
+        navigate(path.login);
       },
       onError: (error) => {
         if (isAxiosErrorUnprocessableEntity<SuccessResponseType<Omit<FormState, 'confirm_password'>>>(error)) {
@@ -86,15 +89,17 @@ export default function Register() {
                 autoComplete='on'
                 errorMessage={errors?.confirm_password?.message}
               />
-              <button
+              <Button
                 type='submit'
-                className='mt-5 mb-8 w-full rounded bg-orange py-2 px-4 text-center uppercase text-white'
+                className='mt-5 mb-8 flex w-full items-center justify-center rounded bg-orange py-2 px-4  text-center uppercase text-white'
+                isLoading={regsiterMutation.isLoading}
+                disabled={regsiterMutation.isLoading}
               >
                 Đăng ký
-              </button>
+              </Button>
               <h4 className='text-center text-sm text-gray-400'>
                 Bạn đã có tài khoản?
-                <Link to='/login' className='ml-2 text-orange'>
+                <Link to={path.login} className='ml-2 text-orange'>
                   Đăng nhập
                 </Link>
               </h4>
