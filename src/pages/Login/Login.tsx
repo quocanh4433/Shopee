@@ -1,16 +1,20 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { loginAccount } from 'src/apis/auth.api';
+import { Link, useNavigate } from 'react-router-dom';
+import { loginApi } from 'src/apis/auth.api';
 import Input from 'src/components/Input';
 import { TypeSchemaLogin, schemaLogin } from 'src/utils/rules';
 import { useMutation } from 'react-query';
 import { isAxiosErrorUnprocessableEntity } from 'src/utils/utils';
-import { ResponseApi } from 'src/types/utils.type';
+import { SuccessResponseType } from 'src/types/utils.type';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { AppContext } from 'src/context/app.context';
+import { useContext } from 'react';
 
 type FormState = TypeSchemaLogin;
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { setIsAuthenticated } = useContext(AppContext);
   const {
     register,
     handleSubmit,
@@ -21,13 +25,17 @@ export default function Login() {
   });
 
   const loginMutation = useMutation({
-    mutationFn: (body: Omit<FormState, 'confirm_password'>) => loginAccount(body)
+    mutationFn: (body: Omit<FormState, 'confirm_password'>) => loginApi(body)
   });
 
   const onSubmit = handleSubmit((data) => {
     loginMutation.mutate(data, {
+      onSuccess: () => {
+        setIsAuthenticated(true);
+        navigate('/');
+      },
       onError: (error) => {
-        if (isAxiosErrorUnprocessableEntity<ResponseApi<FormState>>(error)) {
+        if (isAxiosErrorUnprocessableEntity<SuccessResponseType<FormState>>(error)) {
           const formError = error.response?.data.data;
           if (formError) {
             Object.keys(formError).forEach((key) => {

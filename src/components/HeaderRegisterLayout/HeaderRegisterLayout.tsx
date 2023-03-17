@@ -1,6 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useMatch } from 'react-router-dom';
+import { AppContext } from 'src/context/app.context';
 
 export default function HeaderRegisterLayout() {
+  const loginMatch = useMatch('/login');
+  const isLogin = Boolean(loginMatch);
+
   return (
     <header className='container py-3'>
       <nav className='flex items-center justify-between'>
@@ -12,7 +17,7 @@ export default function HeaderRegisterLayout() {
               </g>
             </svg>
           </Link>
-          <h3 className='ml-3 text-2xl'>Đăng ký</h3>
+          <h3 className='ml-3 text-2xl'>{isLogin ? 'Đăng nhập' : 'Đăng ký'}</h3>
         </div>
         <Link to='https://help.shopee.vn/portal' className='text-orange' target='_blank'>
           Bạn cần giúp đỡ?
