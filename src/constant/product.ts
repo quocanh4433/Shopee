@@ -1,11 +1,11 @@
 export const sortBy = {
-  createAt: 'createAt',
+  createdAt: 'createdAt',
   view: 'view',
   sold: 'sold',
   price: 'price'
 } as const;
 
-export const order = {
+export const orderBy = {
   asc: 'asc',
   desc: 'desc'
 } as const;
