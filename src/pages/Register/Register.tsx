@@ -4,7 +4,6 @@ import Input from 'src/components/Input';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema, TypeSchemaRegister } from 'src/utils/rules';
 import { useMutation } from 'react-query';
-import { registerApi } from 'src/apis/auth.api';
 import { omit } from 'lodash';
 import { isAxiosErrorUnprocessableEntity } from 'src/utils/utils';
 import { SuccessResponseType } from 'src/types/utils.type';
@@ -12,6 +11,7 @@ import { useContext } from 'react';
 import { AppContext } from 'src/context/app.context';
 import Button from 'src/components/Button';
 import { path } from 'src/constant/path';
+import authApi from 'src/apis/auth.api';
 
 type FormState = TypeSchemaRegister;
 
@@ -28,7 +28,7 @@ export default function Register() {
   });
 
   const regsiterMutation = useMutation({
-    mutationFn: (body: Omit<FormState, 'confirm_password'>) => registerApi(body)
+    mutationFn: (body: Omit<FormState, 'confirm_password'>) => authApi.registerApi(body)
   });
 
   const onSubmit = handleSubmit((data) => {

@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginApi } from 'src/apis/auth.api';
 import Input from 'src/components/Input';
 import { TypeSchemaLogin, schemaLogin } from 'src/utils/rules';
 import { useMutation } from 'react-query';
@@ -11,6 +10,7 @@ import { AppContext } from 'src/context/app.context';
 import { useContext } from 'react';
 import Button from 'src/components/Button';
 import { path } from 'src/constant/path';
+import authApi from 'src/apis/auth.api';
 
 type FormState = TypeSchemaLogin;
 
@@ -27,7 +27,7 @@ export default function Login() {
   });
 
   const loginMutation = useMutation({
-    mutationFn: (body: Omit<FormState, 'confirm_password'>) => loginApi(body)
+    mutationFn: (body: Omit<FormState, 'confirm_password'>) => authApi.loginApi(body)
   });
 
   const onSubmit = handleSubmit((data) => {
