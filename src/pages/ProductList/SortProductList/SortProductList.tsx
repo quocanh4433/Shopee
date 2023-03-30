@@ -83,7 +83,6 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
               'bg-white text-black hover:bg-slate-100': !isActiveSortBy(sortBy.price)
             })}
             value={order || ''}
-            defaultValue=''
             onChange={(event) =>
               handlePriceOrder(event.target.value as Exclude<ProductListConfigType['order'], undefined>)
             }
