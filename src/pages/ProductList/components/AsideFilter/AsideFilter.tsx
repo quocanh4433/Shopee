@@ -9,7 +9,7 @@ import { path } from 'src/constant/path';
 import { Category } from 'src/types/category.type';
 import { schemaPrice, TypeSchemaPrice } from 'src/utils/rules';
 import { NoUndefinedField } from 'src/utils/utils';
-import { QueryConfig } from '../ProductList';
+import { QueryConfig } from '../../ProductList';
 import RatingStars from '../RatingStart/RatingStart';
 interface Props {
   categories: Category[];
