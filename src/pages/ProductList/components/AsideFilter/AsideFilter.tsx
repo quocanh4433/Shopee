@@ -6,10 +6,10 @@ import { createSearchParams, Link, useNavigate } from 'react-router-dom';
 import Button from 'src/components/Button';
 import InputNumber from 'src/components/InputNumber';
 import { path } from 'src/constant/path';
+import { QueryConfig } from 'src/hooks/useQueryConfig';
 import { Category } from 'src/types/category.type';
 import { schemaPrice, TypeSchemaPrice } from 'src/utils/rules';
 import { NoUndefinedField } from 'src/utils/utils';
-import { QueryConfig } from '../../ProductList';
 import RatingStars from '../RatingStart/RatingStart';
 interface Props {
   categories: Category[];

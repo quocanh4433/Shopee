@@ -64,7 +64,6 @@ export default function Login() {
                 name='email'
                 type='email'
                 placeholder='Email'
-                className='w-full rounded border border-gray-300 px-4 py-2 outline-none focus:border-gray-400 focus:shadow'
                 register={register}
                 autoComplete='on'
                 errorMessage={errors?.email?.message}
@@ -73,7 +72,6 @@ export default function Login() {
                 name='password'
                 type='password'
                 placeholder='Mật khẩu'
-                className='w-full rounded border border-gray-300 px-4 py-2 outline-none focus:border-gray-400 focus:shadow'
                 register={register}
                 autoComplete='on'
                 errorMessage={errors?.password?.message}

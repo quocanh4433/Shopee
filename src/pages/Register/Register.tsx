@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useNavigation } from 'react-router-dom';
 import Input from 'src/components/Input';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema, TypeSchemaRegister } from 'src/utils/rules';
+import { schemaRegister, TypeSchemaRegister } from 'src/utils/rules';
 import { useMutation } from 'react-query';
 import { omit } from 'lodash';
 import { isAxiosErrorUnprocessableEntity } from 'src/utils/utils';
@@ -24,7 +24,7 @@ export default function Register() {
     setError,
     formState: { errors }
   } = useForm<FormState>({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schemaRegister)
   });
 
   const regsiterMutation = useMutation({
@@ -66,7 +66,6 @@ export default function Register() {
                 name='email'
                 type='email'
                 placeholder='Email'
-                className='w-full rounded border border-gray-300 px-4 py-2 outline-none focus:border-gray-400 focus:shadow'
                 register={register}
                 autoComplete='on'
                 errorMessage={errors?.email?.message}
@@ -75,7 +74,6 @@ export default function Register() {
                 name='password'
                 type='password'
                 placeholder='Mật khẩu'
-                className='w-full rounded border border-gray-300 px-4 py-2 outline-none focus:border-gray-400 focus:shadow'
                 register={register}
                 autoComplete='on'
                 errorMessage={errors?.password?.message}
@@ -84,7 +82,6 @@ export default function Register() {
                 name='confirm_password'
                 type='password'
                 placeholder='Xác nhận mật khẩu'
-                className='w-full rounded border border-gray-300 px-4 py-2 outline-none focus:border-gray-400 focus:shadow'
                 register={register}
                 autoComplete='on'
                 errorMessage={errors?.confirm_password?.message}
