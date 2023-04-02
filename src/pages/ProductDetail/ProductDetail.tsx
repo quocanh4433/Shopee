@@ -11,7 +11,7 @@ import Product from '../ProductList/components/Product';
 import QuantityController from 'src/components/QuantityController';
 import purchaseApi from 'src/apis/purchase.api';
 import { toast } from 'react-toastify';
-import { purchaseStatus } from 'src/constant/purchase';
+import { purchasesStatus } from 'src/constant/purchase';
 
 export default function ProductDetail() {
   const { nameId } = useParams();
@@ -103,7 +103,7 @@ export default function ProductDetail() {
       {
         onSuccess: (data) => {
           toast.success(data.data.message, { autoClose: 1000 });
-          queryClient.invalidateQueries({ queryKey: ['purchases', { status: purchaseStatus.inCart }] });
+          queryClient.invalidateQueries({ queryKey: ['purchases', { status: purchasesStatus.inCart }] });
         }
       }
     );

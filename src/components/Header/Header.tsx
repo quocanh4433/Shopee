@@ -10,7 +10,7 @@ import useQueryConfig from 'src/hooks/useQueryConfig';
 import Popover from '../Popover';
 import { schemaSearch, TypeSchemaSearch } from 'src/utils/rules';
 import { omit } from 'lodash';
-import { purchaseStatus } from 'src/constant/purchase';
+import { purchasesStatus } from 'src/constant/purchase';
 import purchaseApi from 'src/apis/purchase.api';
 import { formatCurrency } from 'src/utils/utils';
 
@@ -35,7 +35,7 @@ export default function Header() {
       setIsAuthenticated(false);
       setProfile(null);
       queryClient.removeQueries({
-        queryKey: ['purchases', { status: purchaseStatus.inCart }]
+        queryKey: ['purchases', { status: purchasesStatus.inCart }]
       });
     }
   });
@@ -46,8 +46,8 @@ export default function Header() {
   // Nên các query này sẽ không bị inactive => Không bị gọi lại => không cần thiết phải set stale: Infinity
 
   const { data: purchasesInCartData } = useQuery({
-    queryKey: ['purchases', { status: purchaseStatus.inCart }],
-    queryFn: () => purchaseApi.getPurchases({ status: purchaseStatus.inCart }),
+    queryKey: ['purchases', { status: purchasesStatus.inCart }],
+    queryFn: () => purchaseApi.getPurchases({ status: purchasesStatus.inCart }),
     enabled: isAuthenticated
   });
 
