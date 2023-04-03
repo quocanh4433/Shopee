@@ -1,7 +1,7 @@
 import { QueryClient, useMutation, useQuery, useQueryClient } from 'react-query';
 import DOMPurify from 'dompurify';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import productApi from 'src/apis/product.api';
 import InputNumber from 'src/components/InputNumber';
 import ProductRating from 'src/components/ProductRating';
@@ -12,11 +12,13 @@ import QuantityController from 'src/components/QuantityController';
 import purchaseApi from 'src/apis/purchase.api';
 import { toast } from 'react-toastify';
 import { purchasesStatus } from 'src/constant/purchase';
+import { path } from 'src/constant/path';
 
 export default function ProductDetail() {
   const { nameId } = useParams();
   const id = getIdFromNameId(nameId as string);
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const { data: productDetailData } = useQuery({
     queryKey: ['product', id],
@@ -107,6 +109,16 @@ export default function ProductDetail() {
         }
       }
     );
+  };
+
+  const buyNow = async () => {
+    const res = await addToCartMutation.mutateAsync({ buy_count: buyCount, product_id: product?._id as string });
+    const purchase = res.data.data;
+    navigate(path.cart, {
+      state: {
+        purchaseId: purchase._id
+      }
+    });
   };
 
   if (!product) return null;
@@ -212,7 +224,7 @@ export default function ProductDetail() {
               <div className='mt-8 flex items-center'>
                 <button
                   onClick={handleAddToCart}
-                  className='flex h-12 items-center justify-center rounded-sm border border-orange bg-orange/10 px-5 capitalize text-orange shadow-sm hover:bg-orange/5'
+                  className='mr-[10px] flex h-12 items-center justify-center rounded-sm border border-orange bg-orange/10 px-5 capitalize text-orange shadow-sm hover:bg-orange/5'
                 >
                   <svg
                     enableBackground='new 0 0 15 15'
@@ -239,7 +251,10 @@ export default function ProductDetail() {
                   </svg>
                   Thêm vào giỏ hàng
                 </button>
-                <button className='fkex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orange px-5 capitalize text-white shadow-sm outline-none hover:bg-orange/90'>
+                <button
+                  onClick={buyNow}
+                  className='ml-4 flex h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orange px-5 capitalize text-white shadow-sm outline-none hover:bg-orange/90'
+                >
                   Mua ngay
                 </button>
               </div>
