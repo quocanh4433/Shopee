@@ -48,6 +48,10 @@ https.interceptors.response.use(
       const message = data?.message || error?.message;
       toast.error(message);
     }
+
+    if (error.response?.status === HttpsStatusCode.Unauthorized) {
+      clearLS();
+    }
     return Promise.reject(error);
   }
 );
