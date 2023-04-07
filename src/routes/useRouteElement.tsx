@@ -10,8 +10,11 @@ import Cart from 'src/pages/Cart';
 import Login from 'src/pages/Login';
 import ProductDetail from 'src/pages/ProductDetail';
 import ProductList from 'src/pages/ProductList';
-import Profile from 'src/pages/Profile';
+import Profile from 'src/pages/User/page/Profile';
 import Register from 'src/pages/Register';
+import UserLayout from 'src/pages/User/layout/UserLayout';
+import ChangePassword from 'src/pages/User/page/ChangePassword';
+import HistoryPurchase from 'src/pages/User/page/HistoryPurchase';
 
 export default function useRouteElement() {
   function ProtectedRoute() {
@@ -52,20 +55,34 @@ export default function useRouteElement() {
       element: <ProtectedRoute />,
       children: [
         {
-          path: path.profile,
-          element: (
-            <MainLayout>
-              <Profile />
-            </MainLayout>
-          )
-        },
-        {
           path: path.cart,
           element: (
             <CartLayout>
               <Cart />
             </CartLayout>
           )
+        },
+        {
+          path: path.user,
+          element: (
+            <MainLayout>
+              <UserLayout />
+            </MainLayout>
+          ),
+          children: [
+            {
+              path: path.profile,
+              element: <Profile />
+            },
+            {
+              path: path.changePassword,
+              element: <ChangePassword />
+            },
+            {
+              path: path.historyPurchase,
+              element: <HistoryPurchase />
+            }
+          ]
         }
       ]
     },

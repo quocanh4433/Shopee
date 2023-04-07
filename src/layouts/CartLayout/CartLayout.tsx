@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import CartHeader from 'src/components/CartHeader';
 import Footer from 'src/components/Footer';
 interface Props {
@@ -5,10 +6,10 @@ interface Props {
 }
 export default function CartLayout({ children }: Props) {
   return (
-    <div>
+    <Fragment>
       <CartHeader />
       {children}
       <Footer />
-    </div>
+    </Fragment>
   );
 }

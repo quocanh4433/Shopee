@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Footer from 'src/components/Footer';
 import Header from 'src/components/Header';
 interface Props {
@@ -5,10 +6,10 @@ interface Props {
 }
 export default function MainLayout({ children }: Props) {
   return (
-    <div>
+    <Fragment>
       <Header />
       {children}
       <Footer />
-    </div>
+    </Fragment>
   );
 }
