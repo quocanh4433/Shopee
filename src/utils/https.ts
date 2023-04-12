@@ -4,9 +4,10 @@ import { toast } from 'react-toastify';
 import { AuthResponse } from 'src/types/auth.type';
 import { clearLS, setAccesTokenToLS, setProfileToLS } from './auth';
 import { path } from 'src/constant/path';
+import config from 'src/constant/config';
 
 const https = axios.create({
-  baseURL: 'https://api-ecom.duthanhduoc.com/',
+  baseURL: config.baseUrl,
   headers: {
     'Content-Type': 'application/json'
   },

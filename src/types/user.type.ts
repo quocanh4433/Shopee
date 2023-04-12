@@ -8,7 +8,7 @@ export interface User {
   date_of_birth: string; // ISO 8601 date
   address?: string;
   phone?: string;
-  avartar?: string;
+  avatar?: string;
   createdAt: string;
   updatedAt: string;
 }

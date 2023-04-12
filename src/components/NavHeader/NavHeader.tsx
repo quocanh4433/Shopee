@@ -6,6 +6,7 @@ import { path } from 'src/constant/path';
 import { purchasesStatus } from 'src/constant/purchase';
 import { AppContext } from 'src/context/app.context';
 import Popover from '../Popover';
+import { getAvatarUrl } from 'src/utils/utils';
 
 export default function NavHeader() {
   const queryClient = useQueryClient();
@@ -23,6 +24,7 @@ export default function NavHeader() {
   const handleLogout = () => {
     logoutMutation.mutate();
   };
+
   return (
     <div className='flex justify-end'>
       <Popover
@@ -87,9 +89,9 @@ export default function NavHeader() {
         >
           <div className='mr-2 h-6 w-6 flex-shrink-0'>
             <img
-              src='https://cf.shopee.vn/file/d04ea22afab6e6d250a370d7ccc2e675_tn'
+              src={getAvatarUrl(profile?.avatar)}
               alt='avatar'
-              className='h-full w-full rounded-full object-cover'
+              className='h-full w-full rounded-full fill-slate-50 object-cover'
             />
           </div>
           <div>{profile?.email}</div>
