@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { omit } from 'lodash';
+import omit from 'lodash/omit';
 import { useForm } from 'react-hook-form';
 import useQueryConfig from './useQueryConfig';
 import { schemaSearch, TypeSchemaSearch } from 'src/utils/rules';

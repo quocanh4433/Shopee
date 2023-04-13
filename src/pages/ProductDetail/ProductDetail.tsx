@@ -1,9 +1,8 @@
-import { QueryClient, useMutation, useQuery, useQueryClient } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import DOMPurify from 'dompurify';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import productApi from 'src/apis/product.api';
-import InputNumber from 'src/components/InputNumber';
 import ProductRating from 'src/components/ProductRating';
 import { ProductListConfigType, ProductType } from 'src/types/product.type';
 import { formatCurrency, formatNumberToSocialStyle, getIdFromNameId, rateSale } from 'src/utils/utils';

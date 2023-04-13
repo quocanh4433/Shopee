@@ -4,7 +4,7 @@ import Input from 'src/components/Input';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schemaRegister, TypeSchemaRegister } from 'src/utils/rules';
 import { useMutation } from 'react-query';
-import { omit } from 'lodash';
+import omit from 'lodash/omit';
 import { isAxiosErrorUnprocessableEntity } from 'src/utils/utils';
 import { SuccessResponseType } from 'src/types/utils.type';
 import { useContext } from 'react';

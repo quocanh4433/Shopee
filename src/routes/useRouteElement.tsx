@@ -1,21 +1,21 @@
-import { useContext } from 'react';
+import { useContext, lazy, Suspense } from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';
 import { path } from 'src/constant/path';
 import { AppContext } from 'src/context/app.context';
 import MainLayout from 'src/layouts/MainLayout';
 import RegisterLayout from 'src/layouts/RegisterLayout';
 import CartLayout from 'src/layouts/CartLayout';
-import Cart from 'src/pages/Cart';
-
-import Login from 'src/pages/Login';
-import ProductDetail from 'src/pages/ProductDetail';
-import ProductList from 'src/pages/ProductList';
-import Profile from 'src/pages/User/page/Profile';
-import Register from 'src/pages/Register';
 import UserLayout from 'src/pages/User/layout/UserLayout';
-import ChangePassword from 'src/pages/User/page/ChangePassword';
-import HistoryPurchase from 'src/pages/User/page/HistoryPurchase';
-import PageNotFound from 'src/pages/PageNotFound';
+
+const Login = lazy(() => import('src/pages/Login'));
+const ProductList = lazy(() => import('src/pages/ProductList'));
+const Profile = lazy(() => import('src/pages/User/page/Profile'));
+const Register = lazy(() => import('src/pages/Register'));
+const ProductDetail = lazy(() => import('src/pages/ProductDetail'));
+const Cart = lazy(() => import('src/pages/Cart'));
+const ChangePassword = lazy(() => import('src/pages/User/page/ChangePassword'));
+const HistoryPurchase = lazy(() => import('src/pages/User/page/HistoryPurchase'));
+const PageNotFound = lazy(() => import('src/pages/PageNotFound'));
 
 export default function useRouteElement() {
   function ProtectedRoute() {
@@ -37,7 +37,9 @@ export default function useRouteElement() {
           path: path.login,
           element: (
             <RegisterLayout>
-              <Login />
+              <Suspense>
+                <Login />
+              </Suspense>
             </RegisterLayout>
           )
         },
@@ -45,7 +47,9 @@ export default function useRouteElement() {
           path: path.register,
           element: (
             <RegisterLayout>
-              <Register />
+              <Suspense>
+                <Register />
+              </Suspense>
             </RegisterLayout>
           )
         }
@@ -91,7 +95,9 @@ export default function useRouteElement() {
       path: path.productDetail,
       element: (
         <MainLayout>
-          <ProductDetail />
+          <Suspense>
+            <ProductDetail />
+          </Suspense>
         </MainLayout>
       )
     },
@@ -100,7 +106,9 @@ export default function useRouteElement() {
       index: true,
       element: (
         <MainLayout>
-          <ProductList />
+          <Suspense>
+            <ProductList />
+          </Suspense>
         </MainLayout>
       )
     },
@@ -108,7 +116,9 @@ export default function useRouteElement() {
       path: '*',
       element: (
         <MainLayout>
-          <PageNotFound />
+          <Suspense>
+            <PageNotFound />
+          </Suspense>
         </MainLayout>
       )
     }
