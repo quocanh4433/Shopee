@@ -72,6 +72,7 @@ export default function Login() {
                 name='password'
                 type='password'
                 placeholder='Mật khẩu'
+                className='relative '
                 register={register}
                 autoComplete='on'
                 errorMessage={errors?.password?.message}
