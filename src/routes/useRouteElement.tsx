@@ -15,6 +15,7 @@ import Register from 'src/pages/Register';
 import UserLayout from 'src/pages/User/layout/UserLayout';
 import ChangePassword from 'src/pages/User/page/ChangePassword';
 import HistoryPurchase from 'src/pages/User/page/HistoryPurchase';
+import PageNotFound from 'src/pages/PageNotFound';
 
 export default function useRouteElement() {
   function ProtectedRoute() {
@@ -88,7 +89,6 @@ export default function useRouteElement() {
     },
     {
       path: path.productDetail,
-      index: true,
       element: (
         <MainLayout>
           <ProductDetail />
@@ -96,11 +96,19 @@ export default function useRouteElement() {
       )
     },
     {
-      path: path.home,
+      path: '',
       index: true,
       element: (
         <MainLayout>
           <ProductList />
+        </MainLayout>
+      )
+    },
+    {
+      path: '*',
+      element: (
+        <MainLayout>
+          <PageNotFound />
         </MainLayout>
       )
     }
