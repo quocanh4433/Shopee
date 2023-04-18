@@ -7,7 +7,7 @@ import { path } from 'src/constant/path';
 import { purchasesStatus } from 'src/constant/purchase';
 import { formatCurrency, generateNameId } from 'src/utils/utils';
 import produce from 'immer';
-import { Fragment, useContext, useEffect, useMemo, useState } from 'react';
+import { Fragment, useContext, useEffect, useMemo } from 'react';
 import { Purchase } from 'src/types/purchase.type';
 import keyBy from 'lodash/keyBy';
 import { toast } from 'react-toastify';
@@ -15,11 +15,11 @@ import { AppContext } from 'src/context/app.context';
 
 export default function Cart() {
   const location = useLocation();
+  const { extendedPurchases, setExtendedPurchases } = useContext(AppContext);
   const { data: purchasesInCartData, refetch } = useQuery({
     queryKey: ['purchases', { status: purchasesStatus.inCart }],
     queryFn: () => purchaseApi.getPurchases({ status: purchasesStatus.inCart })
   });
-  const { extendedPurchases, setExtendedPurchases } = useContext(AppContext);
 
   const updatePurchaseMutation = useMutation({
     mutationFn: purchaseApi.updatePurchase,
