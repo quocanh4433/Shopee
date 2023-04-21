@@ -6,7 +6,7 @@ import {
   clearLS,
   getAccessTokenFromLS,
   getRefreshTokenFromLS,
-  setAccesTokenToLS,
+  setAccessTokenToLS,
   setProfileToLS,
   setRefreshTokenToLS
 } from './auth';
@@ -34,7 +34,7 @@ const handleRefreshToken = () => {
     })
     .then((res) => {
       const { access_token } = res.data.data;
-      setAccesTokenToLS(access_token);
+      setAccessTokenToLS(access_token);
       return access_token;
     })
     .catch((err) => {
@@ -66,7 +66,7 @@ https.interceptors.response.use(
     if (url === URL_LOGIN || url === URL_REGISTER) {
       const data = response.data as AuthResponse;
       const { access_token, user, refresh_token } = data.data;
-      setAccesTokenToLS(access_token);
+      setAccessTokenToLS(access_token);
       setRefreshTokenToLS(refresh_token);
       setProfileToLS(user);
     } else if (url === URL_LOGOUT) {

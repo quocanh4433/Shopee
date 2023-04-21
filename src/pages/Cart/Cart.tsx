@@ -1,33 +1,30 @@
 import { useQuery, useMutation } from 'react-query';
+import { Fragment, useContext, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import purchaseApi from 'src/apis/purchase.api';
 import Button from 'src/components/Button';
 import QuantityController from 'src/components/QuantityController';
 import { path } from 'src/constant/path';
 import { purchasesStatus } from 'src/constant/purchase';
+import { Purchase } from 'src/types/purchase.type';
 import { formatCurrency, generateNameId } from 'src/utils/utils';
 import produce from 'immer';
-import { Fragment, useContext, useEffect, useMemo } from 'react';
-import { Purchase } from 'src/types/purchase.type';
 import keyBy from 'lodash/keyBy';
 import { toast } from 'react-toastify';
 import { AppContext } from 'src/context/app.context';
 
 export default function Cart() {
-  const location = useLocation();
   const { extendedPurchases, setExtendedPurchases } = useContext(AppContext);
   const { data: purchasesInCartData, refetch } = useQuery({
     queryKey: ['purchases', { status: purchasesStatus.inCart }],
     queryFn: () => purchaseApi.getPurchases({ status: purchasesStatus.inCart })
   });
-
   const updatePurchaseMutation = useMutation({
     mutationFn: purchaseApi.updatePurchase,
     onSuccess: () => {
       refetch();
     }
   });
-
   const buyProductsMutation = useMutation({
     mutationFn: purchaseApi.buyProducts,
     onSuccess: (data) => {
@@ -44,7 +41,7 @@ export default function Cart() {
       refetch();
     }
   });
-
+  const location = useLocation();
   const choosenPurchaseIdFromLocation = (location.state as { purchaseId: string } | null)?.purchaseId;
   const purchasesInCart = purchasesInCartData?.data.data;
   const isAllChecked = useMemo(() => extendedPurchases.every((purchase) => purchase.checked), [extendedPurchases]);
@@ -66,12 +63,6 @@ export default function Cart() {
   );
 
   useEffect(() => {
-    return () => {
-      history.replaceState(null, '');
-    };
-  }, []);
-
-  useEffect(() => {
     setExtendedPurchases((prev) => {
       const extendedPurchasesObject = keyBy(prev, '_id');
       return (
@@ -86,6 +77,12 @@ export default function Cart() {
       );
     });
   }, [purchasesInCart, choosenPurchaseIdFromLocation]);
+
+  useEffect(() => {
+    return () => {
+      history.replaceState(null, '');
+    };
+  }, []);
 
   const handleCheck = (purchaseIndex: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setExtendedPurchases(
