@@ -1,16 +1,13 @@
 import HttpStatusCode from 'src/constant/httpStatusCode.enum';
 import { describe, expect, it, beforeEach } from 'vitest';
-import { getAccessTokenFromLS, getRefreshTokenFromLS, setAccessTokenToLS, setRefreshTokenToLS } from '../auth';
+import { setAccessTokenToLS, setRefreshTokenToLS } from '../auth';
 import https from '../https';
+import { access_token_1s, refresh_token_1000days } from 'src/msw/auth.msw';
 
 describe('http axios', () => {
   beforeEach(() => {
     localStorage.clear();
   });
-  const access_token_1s =
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY5MzVlNWZkYzVmMDM3ZTZmNjhkMyIsImVtYWlsIjoiZDNAZ21haWwuY29tIiwicm9sZXMiOlsiVXNlciJdLCJjcmVhdGVkX2F0IjoiMjAyMi0xMi0xNVQxNDowMzoyMy41NzdaIiwiaWF0IjoxNjcxMTEzMDAzLCJleHAiOjE2NzExMTMwMDR9.-gQIpbbKFlRqBlpiiAOBD4puP8jcMtZ2lobXPcy1zmU';
-  const refresh_token_1000days =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY5MzVlNWZkYzVmMDM3ZTZmNjhkMyIsImVtYWlsIjoiZDNAZ21haWwuY29tIiwicm9sZXMiOlsiVXNlciJdLCJjcmVhdGVkX2F0IjoiMjAyMi0xMi0xNVQxNDowNTozNS41MTVaIiwiaWF0IjoxNjcxMTEzMTM1LCJleHAiOjE3NTc1MTMxMzV9.OHDBqBjhih1fgNe6-mWo0PQ-IcukNz4ljlXUCxM-8V8';
 
   it('Gọi API', async () => {
     // Không nên đụng đến thư mục apis
@@ -25,8 +22,8 @@ describe('http axios', () => {
     // Nên có 1 cái account test
     // và 1 server test
     await https.post('login', {
-      email: 'd7@gmail.com',
-      password: '123123'
+      email: 'd3@gmail.com',
+      password: 'useruser'
     });
     const res = await https.get('me');
     expect(res.status).toBe(HttpStatusCode.Ok);

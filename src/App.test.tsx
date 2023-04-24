@@ -1,12 +1,10 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import matchers from '@testing-library/jest-dom/matchers';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
-import { logScreen } from './utils/testUtil';
-
-expect.extend(matchers);
+import { renderWithRouter } from './utils/testUtil';
+import { path } from './constant/path';
 
 describe('App', () => {
   test('App render và chuyển trang', async () => {
@@ -23,12 +21,14 @@ describe('App', () => {
 
     // Verify vào đúng trang chủ
     await waitFor(() => {
+      renderWithRouter({ route: path.home });
       expect(document.querySelector('title')?.textContent).toBe('Trang chủ | Shopee');
     });
 
     // Verify chuyển sang trang login
     await user.click(screen.getByText(/Đăng nhập/i));
     await waitFor(() => {
+      renderWithRouter({ route: path.login });
       expect(screen.queryByText('Bạn mới đến Shopee?')).toBeInTheDocument();
       expect(document.querySelector('title')?.textContent).toBe('Đăng nhập | Shopee');
     });
@@ -45,6 +45,12 @@ describe('App', () => {
     await waitFor(() => {
       expect(screen.getByText(/Page Not Found/i)).toBeInTheDocument();
     });
-    // await logScreen();
+  });
+
+  test('Render trang register', async () => {
+    renderWithRouter({ route: path.register });
+    await waitFor(() => {
+      expect(screen.getByText(/Bạn đã có tài khoản?/i)).toBeInTheDocument();
+    });
   });
 });

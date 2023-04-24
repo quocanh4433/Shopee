@@ -20,13 +20,13 @@ export const schema = yup.object({
   password: yup
     .string()
     .required('Mật khẩu là bắt buộc')
-    .min(6, 'Độ dài từ 5 - 160 ký tự')
-    .max(160, 'Độ dài từ 5 - 160 ký tự'),
+    .min(6, 'Độ dài từ 6 - 160 ký tự')
+    .max(160, 'Độ dài từ 6 - 160 ký tự'),
   confirm_password: yup
     .string()
     .required('Xác nhận mật khẩu là bắt buộc')
-    .min(6, 'Độ dài từ 5 - 160 ký tự')
-    .max(160, 'Độ dài từ 5 - 160 ký tự')
+    .min(6, 'Độ dài từ 6 - 160 ký tự')
+    .max(160, 'Độ dài từ 6 - 160 ký tự')
     .oneOf([yup.ref('password')], 'Xác nhận mật khẩu không khớp'),
   price_min: yup.string().test({
     name: 'price-not-allowed',

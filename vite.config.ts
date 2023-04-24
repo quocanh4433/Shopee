@@ -10,7 +10,8 @@ export default defineConfig({
     port: 4433
   },
   test: {
-    environment: 'jsdom'
+    environment: 'jsdom',
+    setupFiles: path.resolve(__dirname, './vitest.setup.js')
   },
   css: {
     devSourcemap: true
