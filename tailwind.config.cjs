@@ -9,19 +9,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        orange: '#ee4d2d'
+        orange: '#fb5533'
       }
+    },
+    container: {
+      center: true
     }
   },
   plugins: [
     plugin(function ({ addComponents, theme }) {
       addComponents({
         '.container': {
-          maxWidth: theme('column.7xl'),
-          marginRight: 'auto',
+          paddingLeft: theme('spacing.4'),
+          paddingRight: theme('spacing.4'),
           marginLeft: 'auto',
-          paddingLeft: theme('spacing.5'),
-          paddingRight: theme('spacing.5')
+          marginRight: 'auto',
+          '@screen sm': {
+            maxWidth: '640px'
+          },
+          '@screen md': {
+            maxWidth: '768px'
+          },
+          '@screen lg': {
+            maxWidth: '960px'
+          },
+          '@screen xl': {
+            maxWidth: '1200px'
+          }
         }
       });
     }),

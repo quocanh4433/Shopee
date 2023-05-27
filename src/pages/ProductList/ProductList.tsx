@@ -32,7 +32,7 @@ export default function ProductList() {
   return (
     <Fragment>
       <Helmet>
-        <title>Trang chủ | Shopee</title>
+        <title>Shopee Việt Nam | Mua và Bán Trên Ứng Dụng Di Động Hoặc Website</title>
         <meta name='description' content='Trang chủ dự án Shopee' />
       </Helmet>
       <section className='container bg-gray-200 py-6'>
