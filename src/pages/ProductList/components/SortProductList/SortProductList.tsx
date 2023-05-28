@@ -48,11 +48,11 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
 
   return (
     <div className='bg-gray-300/40 py-4 px-3'>
-      <div className='flex flex-wrap items-center justify-between gap-2'>
+      <div className='flex flex-wrap items-center justify-center gap-2 md:justify-between'>
         <div className='flex flex-wrap items-center gap-2'>
-          <div>Sắp xếp theo</div>
+          <span className='hidden md:inline-block'>Sắp xếp theo</span>
           <button
-            className={classNames('h-8  px-4 text-center text-sm capitalize ', {
+            className={classNames('py-1 px-3 text-center text-sm capitalize md:py-2 md:px-4', {
               'bg-orange text-white hover:bg-orange/80': isActiveSortBy(sortBy.view),
               'bg-white text-black hover:bg-slate-100': !isActiveSortBy(sortBy.view)
             })}
@@ -61,7 +61,7 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
             Phổ biến
           </button>
           <button
-            className={classNames('h-8  px-4 text-center text-sm capitalize ', {
+            className={classNames('py-1 px-3 text-center text-sm capitalize md:py-2 md:px-4', {
               'bg-orange text-white hover:bg-orange/80': isActiveSortBy(sortBy.createdAt),
               'bg-white text-black hover:bg-slate-100': !isActiveSortBy(sortBy.createdAt)
             })}
@@ -70,7 +70,7 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
             Mới nhất
           </button>
           <button
-            className={classNames('h-8  px-4 text-center text-sm capitalize ', {
+            className={classNames('py-1 px-3 text-center text-sm capitalize md:py-2 md:px-4', {
               'bg-orange text-white hover:bg-orange/80': isActiveSortBy(sortBy.sold),
               'bg-white text-black hover:bg-slate-100': !isActiveSortBy(sortBy.sold)
             })}
@@ -79,18 +79,15 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
             Bán chạy
           </button>
           <select
-            className={classNames('h-8  px-4 text-left text-sm capitalize  outline-none ', {
-              'bg-orange text-white hover:bg-orange/80': isActiveSortBy(sortBy.price),
-              'bg-white text-black hover:bg-slate-100': !isActiveSortBy(sortBy.price)
+            className={classNames('py-1 px-3 text-left text-sm capitalize outline-none md:py-2 md:px-4 ', {
+              'bg-orange text-white': isActiveSortBy(sortBy.price),
+              'bg-white text-black': !isActiveSortBy(sortBy.price)
             })}
             value={order || ''}
             onChange={(event) =>
               handlePriceOrder(event.target.value as Exclude<ProductListConfigType['order'], undefined>)
             }
           >
-            <option value='' disabled>
-              Giá
-            </option>
             <option value={orderBy.asc} className='bg-white text-black'>
               Giá: Thấp đến cao
             </option>
@@ -100,7 +97,7 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
           </select>
         </div>
 
-        <div className='flex items-center'>
+        <div className='hidden items-center md:flex'>
           <div>
             <span className='text-orange'>{page}</span>
             <span>/{pageSize}</span>

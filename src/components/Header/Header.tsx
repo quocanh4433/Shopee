@@ -118,9 +118,11 @@ export default function Header() {
             >
               <Link to='/' className='relative'>
                 <img className='mx-auto h-5 w-5 md:h-7 md:w-7' src={CartIcon} alt='CartIcon'></img>
-                <span className='absolute top-[-8px] right-[-3px] rounded-full bg-white px-[6px] py-[1px] text-xs text-orange md:px-[9px] '>
-                  {purchasesInCart?.length || 0}
-                </span>
+                {purchasesInCart?.length && (
+                  <span className='absolute top-[-8px] right-[-3px] rounded-full bg-white px-[6px] py-[1px] text-xs text-orange md:px-[9px] '>
+                    {purchasesInCart?.length || 0}
+                  </span>
+                )}
               </Link>
             </Popover>
           </div>
@@ -130,7 +132,6 @@ export default function Header() {
                 <img className='mx-auto h-7 w-7' src={getAvatarUrl(profile?.avatar)} alt='CartIcon'></img>
               </Link>
             )}
-            {}
             {isAuthenticated && (
               <Popover
                 className='flex cursor-pointer items-center py-1 hover:text-white/70'

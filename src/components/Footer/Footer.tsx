@@ -1,7 +1,9 @@
+import GovIcon from 'src/assets/images/GovIcon.svg';
+
 export default function Footer() {
   return (
     <footer className='container bg-gray-100'>
-      <div className='grid grid-cols-1 gap-3 border-b border-b-gray-300 py-7 md:grid-cols-5'>
+      <div className='grid grid-cols-2 gap-3 border-b border-b-gray-300 py-4 md:grid-cols-5 md:py-7'>
         <div>
           <h4 className='mb-4 text-xs font-bold text-gray-700'>CHĂM SÓC KHÁCH HÀNG</h4>
           <ul className='text-xs text-gray-600'>
@@ -146,56 +148,56 @@ export default function Footer() {
               <li>
                 <img
                   src='https://cf.shopee.vn/file/d4bbea4570b93bfd5fc652ca82a262a8'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/a0a9062ebe19b45c1ae0506f16af5c16'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/38fd98e55806c3b2e4535c4e4a6c4c08'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/bc2a874caeee705449c164be385b796c'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/2c46b83d84111ddc32cfd3b5995d9281'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/5e3f0bee86058637ff23cfdf2e14ca09'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/9263fa8c83628f5deff55e2a90758b06'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/0217f1d345587aa0a300e69e2195c492'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
@@ -207,70 +209,70 @@ export default function Footer() {
               <li>
                 <img
                   src='https://cf.shopee.vn/file/5e7282bd0f7ee0872fdb0bd1d40fbe9e'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/d10b0ec09f0322f9201a4f3daf378ed2'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/77bf96a871418fbc21cc63dd39fb5f15'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/59270fb2f3fbb7cbc92fca3877edde3f'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/957f4eec32b963115f952835c779cd2c'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/0d349e22ca8d4337d11c9b134cf9fe63'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/3900aefbf52b1c180ba66e5ec91190e5'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/6e3be504f08f88a15a28a9a447d94d3d'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/b8348201b4611fc3315b82765d35fc63'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
               <li>
                 <img
                   src='https://cf.shopee.vn/file/0b3014da32de48c03340a4e4154328f6'
-                  className='h-7 w-14 rounded-sm bg-white p-[5px] shadow-sm'
+                  className='h-7 w-14 rounded-sm bg-white object-contain p-[5px] shadow-sm'
                   alt=''
                 />
               </li>
@@ -305,7 +307,7 @@ export default function Footer() {
                 <img
                   src='https://cf.shopee.vn/file/a5e589e8e118e937dc660f224b9a1472'
                   alt='qrcode'
-                  className='rounded-sm bg-white p-1 shadow-md'
+                  className='rounded-sm bg-white object-contain p-1 shadow-md'
                 />
               </a>
             </div>
@@ -316,7 +318,7 @@ export default function Footer() {
                     <img
                       src='https://cf.shopee.vn/file/ad01628e90ddf248076685f73497c163'
                       alt='apple-store'
-                      className='mb-1 rounded-sm bg-white p-1 shadow-md'
+                      className='mb-1 rounded-sm bg-white object-contain p-1 shadow-md'
                     />
                   </a>
                 </li>
@@ -325,7 +327,7 @@ export default function Footer() {
                     <img
                       src='https://cf.shopee.vn/file/ae7dced05f7243d0f3171f786e123def'
                       alt='ch-play'
-                      className='mb-1 rounded-sm bg-white p-1 shadow-md'
+                      className='mb-1 rounded-sm bg-white object-contain p-1 shadow-md'
                     />
                   </a>
                 </li>
@@ -334,7 +336,7 @@ export default function Footer() {
                     <img
                       src='https://cf.shopee.vn/file/35352374f39bdd03b25e7b83542b2cb0'
                       alt='app-gallery'
-                      className='mb-1 rounded-sm bg-white p-1 shadow-md'
+                      className='mb-1 rounded-sm bg-white object-contain p-1 shadow-md'
                     />
                   </a>
                 </li>
@@ -343,16 +345,18 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className='py-8 text-xs text-gray-600'>
-        <div className='mb-12 grid grid-cols-1 md:grid-cols-3'>
-          <h4 className='md:col-span-1'>© 2023 Shopee. Tất cả các quyền được bảo lưu.</h4>
-          <h4 className='md:col-span-2'>
+      <div className='py-4 text-xs text-gray-600 md:py-8'>
+        <div className=' mb-5 grid grid-cols-1 md:mb-12 md:grid-cols-3'>
+          <h4 className='mb-2 text-center md:col-span-1 md:mb-0 md:text-left'>
+            © 2023 Shopee. Tất cả các quyền được bảo lưu.
+          </h4>
+          <h4 className='text-center md:col-span-2 md:text-left'>
             Quốc gia & Khu vực: Singapore | Indonesia | Ðài Loan | Thái Lan | Malaysia | Việt Nam | Philippines | Brazil
             | México | Colombia | Chile
           </h4>
         </div>
 
-        <div className='mb-[3rem] text-center'>
+        <div className='mb-4 text-center md:mb-[3rem]'>
           <a className='mx-4' href='https://help.shopee.vn/portal/article/77244'>
             CHÍNH SÁCH BẢO MẬT
           </a>
@@ -370,17 +374,13 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className='mx-auto mb-[2rem] grid max-w-md grid-cols-1 text-center md:grid-cols-3'>
+        <div className='mx-auto mb-4 grid max-w-md grid-cols-2 text-center md:mb-[2rem]'>
           <a href='http://online.gov.vn/Home/WebDetails/18367' className='mx-4'>
-            <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoCCDV.png' alt='logo' />
+            <img src={GovIcon} alt='logo' />
           </a>
 
           <a href='http://online.gov.vn/Home/WebDetails/18367' className='mx-4'>
-            <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoCCDV.png' alt='logo' />
-          </a>
-
-          <a href='http://online.gov.vn/Home/WebDetails/18367' className='mx-4'>
-            <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoCCDV.png' alt='logo' />
+            <img src={GovIcon} alt='logo' />
           </a>
         </div>
 

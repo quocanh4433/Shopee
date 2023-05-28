@@ -20,8 +20,8 @@ module.exports = {
     plugin(function ({ addComponents, theme }) {
       addComponents({
         '.container': {
-          paddingLeft: theme('spacing.4'),
-          paddingRight: theme('spacing.4'),
+          paddingLeft: theme('spacing.2'),
+          paddingRight: theme('spacing.2'),
           marginLeft: 'auto',
           marginRight: 'auto',
           '@screen sm': {

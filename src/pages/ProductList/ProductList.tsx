@@ -35,27 +35,25 @@ export default function ProductList() {
         <title>Shopee Việt Nam | Mua và Bán Trên Ứng Dụng Di Động Hoặc Website</title>
         <meta name='description' content='Trang chủ dự án Shopee' />
       </Helmet>
-      <section className='container bg-gray-200 py-6'>
-        <div className='container'>
-          {productsData && (
-            <div className='grid grid-cols-12 gap-6'>
-              <div className='col-span-3'>
-                <AsideFilter categories={categoriesData?.data.data || []} queryConfig={queryConfig} />
-              </div>
-              <div className='col-span-9'>
-                <SortProductList queryConfig={queryConfig} pageSize={productsData.data.data.pagination.page_size} />
-                <div className='mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
-                  {productsData.data.data.products.map((product) => (
-                    <div className='col-span-1' key={product._id}>
-                      <Product product={product} />
-                    </div>
-                  ))}
-                </div>
-                <Pagination queryConfig={queryConfig} pageSize={productsData.data.data.pagination.page_size} />
-              </div>
+      <section className='container py-3 md:py-5'>
+        {productsData && (
+          <div className='gap-6 md:grid md:grid-cols-12'>
+            <div className='md:col-span-3 xl:col-span-2'>
+              <AsideFilter categories={categoriesData?.data.data || []} queryConfig={queryConfig} />
             </div>
-          )}
-        </div>
+            <div className='md:col-span-9 xl:col-span-10'>
+              <SortProductList queryConfig={queryConfig} pageSize={productsData.data.data.pagination.page_size} />
+              <div className='mt-3 grid grid-cols-2 gap-3 md:mt-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+                {productsData.data.data.products.map((product) => (
+                  <div className='col-span-1' key={product._id}>
+                    <Product product={product} />
+                  </div>
+                ))}
+              </div>
+              <Pagination queryConfig={queryConfig} pageSize={productsData.data.data.pagination.page_size} />
+            </div>
+          </div>
+        )}
       </section>
     </Fragment>
   );

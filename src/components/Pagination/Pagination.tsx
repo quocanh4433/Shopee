@@ -20,7 +20,7 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
       if (!dotBefore) {
         dotBefore = true;
         return (
-          <button key={index} className='mx-2 rounded border bg-white px-3 py-2 shadow-sm'>
+          <button key={index} className='mx-2 rounded border bg-white px-2 py-1 shadow-sm md:px-3 md:py-2'>
             ...
           </button>
         );
@@ -31,7 +31,7 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
       if (!dotAfter) {
         dotAfter = true;
         return (
-          <button key={index} className='mx-2 rounded border bg-white px-3 py-2 shadow-sm'>
+          <button key={index} className='mx-2 rounded border bg-white px-2 py-1 shadow-sm md:px-3 md:py-2'>
             ...
           </button>
         );
@@ -66,9 +66,8 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
               }).toString()
             }}
             key={index}
-            className={classNames('mx-2 cursor-pointer rounded border bg-white px-3 py-2 shadow-sm', {
-              'border-cyan-500': pageNumber === page,
-              'border-transparent': pageNumber !== page
+            className={classNames('mx-2 cursor-pointer px-2 py-0.5 text-sm md:mx-4 md:py-1 md:px-4 md:text-lg', {
+              'rounded bg-orange font-semibold text-white': pageNumber === page
             })}
           >
             {pageNumber}
@@ -78,9 +77,18 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
   };
 
   return (
-    <section className='mt-6 flex flex-wrap justify-center'>
+    <section className='mt-6 flex flex-wrap items-center justify-center'>
       {page === 1 ? (
-        <span className='mx-2 cursor-not-allowed rounded border bg-gray-300 px-3 py-2  shadow-sm'>Prev</span>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+          strokeWidth={1.5}
+          stroke='currentColor'
+          className='mx-4 h-4 w-4 md:mx-6 md:h-6 md:w-6'
+        >
+          <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
+        </svg>
       ) : (
         <Link
           to={{
@@ -90,14 +98,34 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
               page: (page - 1).toString()
             }).toString()
           }}
-          className='mx-2 cursor-pointer rounded border bg-white px-3 py-2  shadow-sm'
+          className='cursor-pointer '
         >
-          Prev
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth={1.5}
+            stroke='currentColor'
+            className='mx-4 h-4 w-4 md:mx-6 md:h-6 md:w-6'
+          >
+            <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
+          </svg>
         </Link>
       )}
+
       {renderPagination()}
+
       {page === pageSize ? (
-        <span className='mx-2 cursor-not-allowed rounded border bg-gray-300 px-3 py-2  shadow-sm'>Next</span>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+          strokeWidth={1.5}
+          stroke='currentColor'
+          className='mx-4 h-4 w-4 cursor-pointer md:mx-6 md:h-6 md:w-6'
+        >
+          <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
+        </svg>
       ) : (
         <Link
           to={{
@@ -107,9 +135,18 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
               page: (page + 1).toString()
             }).toString()
           }}
-          className='mx-2 cursor-pointer rounded border bg-white px-3 py-2  shadow-sm'
+          className='cursor-pointer '
         >
-          Next
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth={1.5}
+            stroke='currentColor'
+            className='mx-4 h-4 w-4 md:mx-6 md:h-6 md:w-6'
+          >
+            <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
+          </svg>
         </Link>
       )}
     </section>
