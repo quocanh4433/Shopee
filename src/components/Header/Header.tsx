@@ -118,9 +118,9 @@ export default function Header() {
             >
               <Link to='/' className='relative'>
                 <img className='mx-auto h-5 w-5 md:h-7 md:w-7' src={CartIcon} alt='CartIcon'></img>
-                {purchasesInCart?.length && (
+                {isAuthenticated && (
                   <span className='absolute top-[-8px] right-[-3px] rounded-full bg-white px-[6px] py-[1px] text-xs text-orange md:px-[9px] '>
-                    {purchasesInCart?.length || 0}
+                    {purchasesInCart?.length}
                   </span>
                 )}
               </Link>

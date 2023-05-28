@@ -110,7 +110,7 @@ export default function Profile() {
         <h1 className='text-lg font-medium capitalize text-gray-900'>Hồ Sơ Của Tôi</h1>
         <div className='mt-1 text-sm text-gray-700'>Quản lý thông tin hồ sơ để bảo mật tài khoản</div>
       </div>
-      <form className='mt-8 flex flex-col-reverse md:flex-row md:items-start' onSubmit={onSubmit}>
+      <form className='mt-4 flex flex-col-reverse md:mt-8 md:flex-row md:items-start' onSubmit={onSubmit}>
         <div className='mt-6 flex-grow md:mt-0 md:pr-12'>
           <div className='flex flex-col flex-wrap sm:flex-row'>
             <div className='truncate pt-3 capitalize sm:w-[20%] sm:text-right'>Email</div>
@@ -182,18 +182,20 @@ export default function Profile() {
           </div>
         </div>
         <div className='flex justify-center md:w-72 md:border-l md:border-l-gray-200'>
-          <div className='flex flex-col items-center'>
-            <div className='my-5 h-24 w-24'>
+          <div className='flex flex-row items-center md:flex-col'>
+            <div className='mr-2 h-24 w-24 md:my-5'>
               <img
                 src={previewImage || getAvatarUrl(avatar)}
                 alt=''
                 className='h-full w-full rounded-full object-cover'
               />
             </div>
-            <InputFile onChange={handleChangeFile} />
-            <div className='mt-3 text-gray-400'>
-              <div>Dụng lượng file tối đa 1 MB</div>
-              <div>Định dạng:.JPEG, .PNG</div>
+            <div>
+              <InputFile onChange={handleChangeFile} />
+              <div className='mt-3 text-xs text-gray-400 md:text-base'>
+                <div>Dụng lượng file tối đa 1 MB</div>
+                <div>Định dạng:.JPEG, .PNG</div>
+              </div>
             </div>
           </div>
         </div>

@@ -37,7 +37,7 @@ export default function HistoryPurchase() {
           status: String(tab.status)
         }).toString()
       }}
-      className={classNames('flex flex-1 items-center justify-center border-b-2 bg-white py-4 text-center', {
+      className={classNames('flex flex-1 items-center justify-center border-b-2 bg-white py-2 text-center md:py-4', {
         'border-b-orange text-orange': status === tab.status,
         'border-b-black/10 text-gray-900': status !== tab.status
       })}
@@ -47,21 +47,28 @@ export default function HistoryPurchase() {
   ));
 
   return (
-    <div>
-      <div className='overflow-x-auto'>
-        <div className='min-w-[700px]'>
-          <div className='sticky top-0 flex rounded-t-sm shadow-sm'>{purchaseTabsLink}</div>
-          <div>
-            {purchasesInCart?.map((purchase) => (
-              <div key={purchase._id} className='mt-4 rounded-sm border-black/10 bg-white p-6 text-gray-800 shadow-sm'>
+    <div className='overflow-x-auto'>
+      <div className='min-w-[600px] md:min-w-[700px]'>
+        <div className='sticky top-0 flex rounded-t-sm shadow-sm'>{purchaseTabsLink}</div>
+        <div>
+          {purchasesInCart && purchasesInCart.length > 0 ? (
+            purchasesInCart?.map((purchase) => (
+              <div
+                key={purchase._id}
+                className='mt-2 rounded-sm border-black/10 bg-white p-3 text-gray-800 shadow-sm md:mt-4 lg:p-6'
+              >
                 <Link
                   to={`${path.home}${generateNameId({ name: purchase.product.name, id: purchase.product._id })}`}
                   className='flex'
                 >
                   <div className='flex-shrink-0'>
-                    <img className='h-20 w-20 object-cover' src={purchase.product.image} alt={purchase.product.name} />
+                    <img
+                      className='h-20 w-20 object-contain'
+                      src={purchase.product.image}
+                      alt={purchase.product.name}
+                    />
                   </div>
-                  <div className='ml-3 flex-grow overflow-hidden'>
+                  <div className='ml-3 flex-grow'>
                     <div className='truncate'>{purchase.product.name}</div>
                     <div className='mt-3'>x{purchase.buy_count}</div>
                   </div>
@@ -81,8 +88,17 @@ export default function HistoryPurchase() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            ))
+          ) : (
+            <div className='mt-2 bg-white py-[50px] text-center md:mt-4 md:py-[150px]'>
+              <img
+                className='mx-auto w-[50px] md:w-[100px]'
+                src='https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/5fafbb923393b712b96488590b8f781f.png'
+                alt='ContentError'
+              />
+              <p className='mt-3 text-sm font-semibold md:text-base'>Chưa có đơn hàng</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
