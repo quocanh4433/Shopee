@@ -1,12 +1,12 @@
 import { useQuery, useMutation } from 'react-query';
-import { Fragment, useContext, useEffect, useMemo } from 'react';
+import { Fragment, useContext, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import purchaseApi from 'src/apis/purchase.api';
 import Button from 'src/components/Button';
 import QuantityController from 'src/components/QuantityController';
 import { path } from 'src/constant/path';
 import { purchasesStatus } from 'src/constant/purchase';
-import { Purchase } from 'src/types/purchase.type';
+import { ExtendedPurchase, Purchase } from 'src/types/purchase.type';
 import { formatCurrency, generateNameId } from 'src/utils/utils';
 import produce from 'immer';
 import keyBy from 'lodash/keyBy';
@@ -14,7 +14,9 @@ import { toast } from 'react-toastify';
 import { AppContext } from 'src/context/app.context';
 
 export default function Cart() {
-  const { extendedPurchases, setExtendedPurchases } = useContext(AppContext);
+  // const { extendedPurchases, setExtendedPurchases } = useContext(AppContext);
+  const [extendedPurchases, setExtendedPurchases] = useState<ExtendedPurchase[]>([]);
+
   const { data: purchasesInCartData, refetch } = useQuery({
     queryKey: ['purchases', { status: purchasesStatus.inCart }],
     queryFn: () => purchaseApi.getPurchases({ status: purchasesStatus.inCart })
@@ -142,13 +144,13 @@ export default function Cart() {
   };
 
   return (
-    <div className='bg-neutral-100 py-16'>
+    <div className='py-4 md:py-16'>
       <div className='container'>
         {extendedPurchases.length > 0 ? (
           <Fragment>
             <div className='overflow-auto'>
               <div className='min-w-[1000px]'>
-                <div className='grid grid-cols-12 rounded-sm bg-white py-5 px-9 text-sm capitalize text-gray-500 shadow'>
+                <div className='grid grid-cols-12 rounded-sm bg-white py-3 px-6 text-sm capitalize text-gray-500 shadow md:py-5 md:px-9'>
                   <div className='col-span-6'>
                     <div className='flex items-center'>
                       <div className='flex flex-shrink-0 items-center justify-center pr-3'>
@@ -159,7 +161,7 @@ export default function Cart() {
                           onChange={handleCheckAll}
                         />
                       </div>
-                      <div className='flex-grow text-black'>Sản phẩm</div>
+                      <div className='flex-grow text-sm text-black md:text-base'>Sản phẩm</div>
                     </div>
                   </div>
                   <div className='col-span-6'>
@@ -265,9 +267,9 @@ export default function Cart() {
                 )}
               </div>
             </div>
-            <div className='sticky bottom-0 z-10 mt-8 flex flex-col rounded-sm border border-gray-100 bg-white p-5 shadow sm:flex-row sm:items-center'>
+            <div className='sticky bottom-0 z-10 flex flex-col rounded-sm border border-gray-100 bg-white p-3 shadow sm:flex-row sm:items-center md:mt-8 md:p-5'>
               <div className='flex items-center'>
-                <div className='flex flex-shrink-0 items-center justify-center pr-3'>
+                <div className='flex flex-shrink-0 items-center justify-center pr-2 md:pr-3'>
                   <input
                     type='checkbox'
                     className='h-5 w-5 accent-orange'
@@ -275,7 +277,7 @@ export default function Cart() {
                     onChange={handleCheckAll}
                   />
                 </div>
-                <button className='mx-3 border-none bg-none' onClick={handleCheckAll}>
+                <button className='mx-3 border-none bg-none text-sm md:text-base' onClick={handleCheckAll}>
                   Chọn tất cả ({extendedPurchases.length})
                 </button>
                 <button onClick={handleDeleteManyPurchases} className='mx-3 border-none bg-none'>
@@ -283,9 +285,9 @@ export default function Cart() {
                 </button>
               </div>
 
-              <div className='mt-5 flex flex-col sm:ml-auto sm:mt-0 sm:flex-row sm:items-center'>
+              <div className='mt-5 flex flex-col sm:ml-auto sm:mt-0 sm:flex-row '>
                 <div>
-                  <div className='flex items-center sm:justify-end'>
+                  <div className='mb-2 flex flex-col sm:justify-end md:mb-0 md:flex-row md:items-center'>
                     <div>Tổng thanh toán ({checkedPurchasesCount} sản phẩm):</div>
                     <div className='ml-2 text-2xl text-orange'>₫{formatCurrency(totalCheckedPurchasePrice)}</div>
                   </div>
@@ -295,7 +297,7 @@ export default function Cart() {
                   </div>
                 </div>
                 <Button
-                  className='mt-5 flex h-10 w-52 items-center justify-center bg-red-500 text-sm uppercase text-white hover:bg-red-600 sm:ml-4 sm:mt-0'
+                  className='mt-5 flex h-10 w-40 items-center justify-center bg-red-500 text-sm uppercase text-white hover:bg-red-600 sm:ml-4 sm:mt-0 md:w-52'
                   onClick={handleBuyPurchases}
                   disabled={buyProductsMutation.isLoading}
                 >

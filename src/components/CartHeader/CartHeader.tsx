@@ -13,10 +13,10 @@ export default function CartHeader() {
           <NavHeader />
         </div>
       </div>
-      <div className='bg-white py-6'>
+      <div className='bg-white py-2 md:py-6'>
         <div className='container'>
           <nav className='md:flex md:items-center md:justify-between'>
-            <Link to={path.home} className='flex flex-shrink-0 items-end'>
+            <Link to={path.home} className='hidden flex-shrink-0 items-end md:flex'>
               <div>
                 <svg viewBox='0 0 192 65' className='h-8 fill-orange md:h-11'>
                   <g fillRule='evenodd'>
@@ -27,7 +27,7 @@ export default function CartHeader() {
               <div className='mx-4 h-6 w-[1px] bg-orange md:h-8' />
               <div className='capitalize text-orange md:text-xl'>Giỏ hàng</div>
             </Link>
-            <form className='mt-3 md:mt-0 md:w-[50%]' onSubmit={onSubmitSearch}>
+            <form className='md:w-[50%]' onSubmit={onSubmitSearch}>
               <div className='flex rounded-sm border-2 border-orange'>
                 <input
                   type='text'

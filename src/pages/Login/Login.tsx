@@ -28,31 +28,34 @@ export default function Login() {
   });
 
   const loginMutation = useMutation({
-    mutationFn: (body: Omit<FormState, 'confirm_password'>) => authApi.loginApi(body)
+    mutationFn: (body: Omit<FormState, 'confirm_password'>) => authApi.loginApi(body),
+    onSuccess: (data) => {
+      setIsAuthenticated(true);
+      setProfile(data.data.data.user);
+      navigate(path.home);
+    },
+    onError: (error) => {
+      if (isAxiosErrorUnprocessableEntity<SuccessResponseType<FormState>>(error)) {
+        const formError = error.response?.data.data;
+        if (formError) {
+          Object.keys(formError).forEach((key) => {
+            setError(key as keyof FormState, {
+              message: formError[key as keyof FormState],
+              type: 'Server'
+            });
+          });
+        }
+      }
+    }
   });
 
   const onSubmit = handleSubmit((data) => {
-    loginMutation.mutate(data, {
-      onSuccess: (data) => {
-        setIsAuthenticated(true);
-        setProfile(data.data.data.user);
-        navigate(path.home);
-      },
-      onError: (error) => {
-        if (isAxiosErrorUnprocessableEntity<SuccessResponseType<FormState>>(error)) {
-          const formError = error.response?.data.data;
-          if (formError) {
-            Object.keys(formError).forEach((key) => {
-              setError(key as keyof FormState, {
-                message: formError[key as keyof FormState],
-                type: 'Server'
-              });
-            });
-          }
-        }
-      }
-    });
+    loginMutation.mutate(data);
   });
+
+  const hanldleAutoLogin = () => {
+    loginMutation.mutate({ email: 'quocanh55@gmail.com', password: '123456' });
+  };
 
   return (
     <Fragment>
@@ -82,6 +85,15 @@ export default function Login() {
                 autoComplete='on'
                 errorMessage={errors?.password?.message}
               />
+              <Button
+                type='submit'
+                className='mt-5 mb-2 flex w-full items-center justify-center rounded bg-orange py-2 px-4  text-center uppercase text-white'
+                isLoading={loginMutation.isLoading}
+                disabled={loginMutation.isLoading}
+                onClick={hanldleAutoLogin}
+              >
+                Đăng nhập tự động
+              </Button>
               <Button
                 type='submit'
                 className='mt-5 mb-8 flex w-full items-center justify-center rounded bg-orange py-2 px-4  text-center uppercase text-white'

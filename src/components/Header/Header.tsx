@@ -137,7 +137,7 @@ export default function Header() {
                 className='flex cursor-pointer items-center py-1 hover:text-white/70'
                 renderPopover={<SubMenuUser />}
               >
-                <img className='mx-auto h-7 w-7' src={getAvatarUrl(profile?.avatar)} alt='CartIcon'></img>
+                <img className='mx-auto h-7 w-7 rounded-full' src={getAvatarUrl(profile?.avatar)} alt='CartIcon'></img>
               </Popover>
             )}
           </div>
